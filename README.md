@@ -1,4 +1,4 @@
-# Identifier les ambiances et types d’expérience des restaurants grâce à une analyse multimodale des données Yelp
+# Identifier les ambiances et types d’expérience des restaurants grâce à un clustering multimodale des données Yelp
 
 L’objectif de ce projet est d’identifier, à partir des avis Yelp, les différentes ambiances et types d’expérience proposés par les restaurants.
 
@@ -18,13 +18,15 @@ Afin de regrouper les restaurants en catégories plus parlantes pour les utilisa
 
 ## Organisation du projet
 
-Le premier traitement des données numériques se trouve dans le fichier traitement_donnees_features.
+
+Le premier traitement des données numériques et l'analyse descriptive se trouvent dans le fichier traitement_donnees_features et analyse descriptive.ipynb
 
 Le traitement des images est réalisé dans exploration_clip_embedding.ipynb.
 
 Le traitement des textes est effectué dans traitement_NLP.ipynb.
 
-La génération et l’analyse des clusters sont réalisées dans main.ipynb.
+La génération et l’analyse des clusters sont réalisées dans main.ipynb. 
+main_avec_photos regroupe
 
 Les données des restaurants de la ville de Philadelphie sont disponibles ici :
 https://drive.google.com/drive/folders/1TGKSyMR1O96ClNZo47HqJ_w3h1SAo8lZ?usp=sharing
