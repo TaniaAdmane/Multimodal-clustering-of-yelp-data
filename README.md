@@ -54,25 +54,24 @@ Cette approche permet de regrouper les restaurants en catégories plus interpré
 
 ---
 
-## Structure du projet
+##  Structure du projet
 
+```text
 ├── main.ipynb
-│ └── Clustering basé sur les avis textuels + features numériques
+│   └── Clustering basé sur les avis textuels et les variables numériques
 │
 ├── main_avec_photos.ipynb
-│ └── Clustering multimodal (texte + images + features numériques)
+│   └── Clustering multimodal (texte, images et variables numériques)
 │
-├── traitement_donnees_features et analyse_descriptive.ipynb
-│ └── Prétraitement des variables numériques et analyse descriptive
+├── traitement_donnees_features_et_analyse_descriptive.ipynb
+│   └── Prétraitement des variables numériques et analyse descriptive
 │
 ├── traitement_NLP.ipynb
-│ └── Prétraitement des avis textuels et génération des embeddings
+│   └── Prétraitement des avis textuels et génération des embeddings
 │
 ├── exploration_clip_embedding.ipynb
-│ └── Traitement des images et extraction des embeddings visuels
-
-
-
+│   └── Traitement des images et extraction des embeddings visuels
+```
 
 ## Données
 
