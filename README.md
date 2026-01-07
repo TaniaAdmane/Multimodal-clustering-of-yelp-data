@@ -1,32 +1,83 @@
-# Identifier les ambiances et types d’expérience des restaurants grâce à un clustering multimodale des données Yelp
+# Clustering multimodal des restaurants Yelp
 
-L’objectif de ce projet est d’identifier, à partir des avis Yelp, les différentes ambiances et types d’expérience proposés par les restaurants.
+*Identifier les ambiances et types d’expérience des restaurants à partir des données Yelp*
 
-L’idée de départ est la suivante : lorsqu’on visite une ville pour la première fois, il est souvent difficile de choisir un restaurant en se basant uniquement sur la note globale. Une bonne note ne garantit pas forcément une expérience adaptée à ce que l’on recherche, et peut parfois mener à une déception.
+**Auteur :** Tania ADMANE, Ndoumbé BAYO, Tea TOSCAN DU PLANTIER 
+**Date :** Janvier 2026
 
-L’objectif est donc d’analyser les différentes données disponibles dans la base :
+![Python](https://img.shields.io/badge/Python-3.10.15-blue)
 
-- les avis textuels,
+---
 
-- les photos,
+## Objectif du projet
 
-- les notes,
+Ce projet vise à identifier les **ambiances** et **types d’expérience** proposés par les restaurants à partir des données Yelp, en allant au-delà de la simple note globale.
 
-- le type de clientèle, etc.,
+Lorsqu’on visite une ville pour la première fois, il est souvent difficile de choisir un restaurant uniquement sur la base de sa note moyenne. Une note élevée ne garantit pas nécessairement une expérience correspondant à ses attentes, et peut conduire à une déception. Deux restaurants très bien notés peuvent en réalité proposer des expériences radicalement différentes.
 
-Afin de regrouper les restaurants en catégories plus parlantes pour les utilisateurs, comme par exemple : restaurants attrape-touristes, restaurants authentiques, bonnes adresses méconnues, lieux festifs, restaurants familiaux, etc.
+L’objectif est donc de **segmenter les restaurants selon l’expérience vécue**, en exploitant conjointement plusieurs sources d’information.
 
-## Organisation du projet
+---
+
+## Approche
+
+Nous adoptons une approche de **clustering multimodal**, basée sur :
+
+- les **avis textuels** (analyse sémantique),
+- les **images** publiées sur Yelp,
+- les **notes et variables numériques**,
+
+Cette approche permet de regrouper les restaurants en catégories plus interprétables pour l’utilisateur final, telles que :
+- restaurants attrape-touristes,
+- restaurants authentiques,
+- bonnes adresses méconnues,
+- lieux festifs ect 
+
+---
+
+## Méthodologie
+
+- **Textes** :  
+  Encodage des avis clients à l’aide de **SBERT**, afin de capturer les nuances sémantiques et les différents aspects de l’expérience décrite dans les avis.
+
+- **Images** :  
+  Extraction d’embeddings visuels via **CLIP**, permettant de représenter l’ambiance visuelle des restaurants (décor, plats, atmosphère).
+
+- **Fusion multimodale** :  
+  Combinaison des embeddings textuels, visuels et des variables numériques dans un espace commun.
+
+- **Réduction de dimension** :  
+  Utilisation de **UMAP** pour projeter les représentations dans un espace de dimension réduite tout en conservant la structure locale des données.
+
+- **Clustering** :  
+  Application de **HDBSCAN**, un algorithme de clustering hiérarchique dense, permettant d’identifier automatiquement le nombre de clusters et de gérer le bruit.
+
+---
+
+## Structure du projet
+
+├── main.ipynb
+│ └── Clustering basé sur les avis textuels + features numériques
+│
+├── main_avec_photos.ipynb
+│ └── Clustering multimodal (texte + images + features numériques)
+│
+├── traitement_donnees_features et analyse_descriptive.ipynb
+│ └── Prétraitement des variables numériques et analyse descriptive
+│
+├── traitement_NLP.ipynb
+│ └── Prétraitement des avis textuels et génération des embeddings
+│
+├── exploration_clip_embedding.ipynb
+│ └── Traitement des images et extraction des embeddings visuels
 
 
-Le premier traitement des données numériques et l'analyse descriptive se trouvent dans le fichier traitement_donnees_features et analyse descriptive.ipynb
 
-Le traitement des images est réalisé dans exploration_clip_embedding.ipynb.
 
-Le traitement des textes est effectué dans traitement_NLP.ipynb.
+## Données
 
-La génération et l’analyse des clusters sont réalisées dans main.ipynb. 
-main_avec_photos regroupe
+Les données utilisées concernent exclusivement les **restaurants de la ville de Philadelphie**, préalablement filtrés à partir de la base Yelp.
 
-Les données des restaurants de la ville de Philadelphie sont disponibles ici :
+Accès aux données :  
 https://drive.google.com/drive/folders/1TGKSyMR1O96ClNZo47HqJ_w3h1SAo8lZ?usp=sharing
+
