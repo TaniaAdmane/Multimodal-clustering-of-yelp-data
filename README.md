@@ -3,6 +3,7 @@
 *Identifier les ambiances et types d’expérience des restaurants à partir des données Yelp*
 
 **Auteur :** Tania ADMANE, Ndoumbé BAYO, Tea TOSCAN DU PLANTIER
+
 **Date :** Janvier 2026
 
 ![Python](https://img.shields.io/badge/Python-3.10.15-blue)
